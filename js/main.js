@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
   setCurrentYear();
   initFadeIn();
   initLeadForm();
+  initStickyCta();
 });
 
 /* ---------- Anno corrente nel footer ---------- */
@@ -37,6 +38,21 @@ function initFadeIn() {
   }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
   targets.forEach(function (el) { observer.observe(el); });
+}
+
+/* ---------- CTA sticky mobile: si nasconde quando il form è già visibile ---------- */
+function initStickyCta() {
+  var bar = document.getElementById('mobile-sticky-cta');
+  var formSection = document.getElementById('form');
+  if (!bar || !formSection || !('IntersectionObserver' in window)) return;
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      bar.classList.toggle('is-hidden', entry.isIntersecting);
+    });
+  }, { threshold: 0.15 });
+
+  observer.observe(formSection);
 }
 
 /* ---------- Form di contatto: validazione client-side + invio ---------- */
