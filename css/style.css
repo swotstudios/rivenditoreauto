@@ -621,22 +621,12 @@ input, select, textarea { font: inherit; }
 
 .logo-strip {
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
   justify-content: center;
   align-items: center;
 }
-.logo-placeholder {
-  width: 140px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px dashed var(--color-border);
-  border-radius: var(--radius-sm);
-  color: var(--color-text-muted);
-  font-size: 0.78rem;
-  background: var(--color-surface);
+.partner-logo {
+  height: 56px;
+  width: auto;
 }
 
 /* ---------- Esclusiva di zona ---------- */
